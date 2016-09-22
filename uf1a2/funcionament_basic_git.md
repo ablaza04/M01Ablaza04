@@ -9,4 +9,4 @@
 - git push
 	3. Passos per recuperar fitxers de repositori:
 - cd <repositori>
-- git pull
+- git pull.
