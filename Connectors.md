@@ -1,4 +1,4 @@
-# CONECTORS EN UN ORDINADOR
+# CONNECTORS EN UN ORDINADOR
 ***
 
 1. Port del ratolí i del teclat
