@@ -3,7 +3,7 @@
 1. Resum de sistemes RAID fent servir una taula com la vista a classe.
 
 Nivells | Nº Mín. Discs | Nº Màx. Discs Fallats | Capacitat | Read | Write
-:------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
+------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
     RAID 0     |       2        |       0        |      100%      |   Excel·lent   |    Excel·lent 
     RAID 1     |       2 (máx)  |       1        |      50%       |   Very Good    |    Good
     RAID 5     |       3        |       1        |   67% - 94%    |   Very Good    |    Good
