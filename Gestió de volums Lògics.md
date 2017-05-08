@@ -1,4 +1,4 @@
-# Gestió de volums Lògics
+# Gestió de volums Lògics 
 
 - És una capa d'abstracció entre un dispositiu d'emmagatzematge (per exemple un disc) i un sistema de fitxers, que està entre els nostres discos físics i els sistemes de fitxers.
 
@@ -24,26 +24,44 @@
 
 Primer creem 3 PV :
 
-    - pvcreate /dev/vda 
-    - pvcreate /dev/vdb 
-    - pvcreate /dev/vdc
+    - vgcreate /dev/vda 
+    - vgcreate /dev/vdb 
+    - vgcreate /dev/vdc
+
 ![Captura 3 discos](https://github.com/ablaza04/M01Ablaza04/blob/master/Captura%20de%20pantalla%20de%202017-04-06%2013-09-46.png)
+
+![Success 3 discos](https://github.com/ablaza04/M01Ablaza04/blob/master/Captura%20de%20pantalla%20de%202017-04-06%2013-35-03.png)
 
 ##### Pràctica 1: Creació d'un volum lògic a partir d'un dels tres discs durs (vda per exemple). Aquest volum lògic ha de ser del total de capacitat del disc. El volum de grup s'ha de dir practica1 i el volum lògic dades.
 Per fer això hem de posar una comanda :
 
-    lvcreate -l +100%FREE -n practica1 dades
+    lvcreate -l +100%FREE -n dades practica1
 **lvcreate:**  es crea un Volum lògic.
 
 **-l:**  aquest paràmetre es per determinar la mida o quantitat de LV que volguem, en aquesta pràctica es **+100%FREE**.
 
 **-n:**  aquest paràmetre es per determinar el nom de lv que en aquest cas es **practica1**, deprés d'això posar el **<vg>** , que es dades. 
 
+![+100%FREE](https://github.com/ablaza04/M01Ablaza04/blob/master/Captura%20de%20pantalla%20de%202017-04-06%2013-43-30.png)
     
 ##### Pràctica 2: Creació d'un sistema de fitxers xfs al volum lògic creat i muntatge a /mnt. També s'ha de crear un fitxer amb dd de 180MB.
 Hem de posar aquest comanda:
+
+mkfs.ext4 per visualitzar les dades:
+
+    mkfs.xfs /dev/practica1/dades
     
+Després ho hem de montar a /mnt:
+
+    mount /dev/practica1/dades /mnt
+
+Després hem de crear un fitxer de 180MB amb comanda **dd**:
     
+    dd if=/dev/zero of=test.img bs=180MB count=1
+    
+![mkfs](https://github.com/ablaza04/M01Ablaza04/blob/master/Captura%20de%20pantalla%20de%202017-04-06%2013-57-41.png)
+
+![mount](https://github.com/ablaza04/M01Ablaza04/blob/master/Captura%20de%20pantalla%20de%202017-04-06%2013-55-57.png)
 
 ##### Pràctica 3: Creació d'un RAID 1 als dos discos sobrants (vdb i vdc per exemple).
 
